@@ -39,17 +39,17 @@
                 })
         }())
 
-        // (async function () {
-        //     let header = await fetch(`/footer.html`)
-        //         .then((response) => {
-        //             return response.text()
-        //         })
-        //         .then((html) => {
-        //             var parser = new DOMParser();
-        //             var doc = parser.parseFromString(html, "text/html");
-        //             document.getElementById("footer").innerHTML = doc
-        //         })
-        // }())
+        (async function () {
+            let header = await fetch(`/footer.html`)
+                .then((response) => {
+                    return response.text()
+                })
+                .then((html) => {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(html, "text/html");
+                    document.getElementById("footer").innerHTML = doc
+                })
+        }())
 
         async function fetchJson() {
             let r = await fetch(`/ccc.json`)
