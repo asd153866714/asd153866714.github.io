@@ -14,7 +14,7 @@
         (async function(){
             let header = await fetch(`/header.html`)
             .then((response) => {
-                document.getElementById("header").innerHTML = response.text
+                document.getElementById("header").innerHTML = response.text()
             })
         }())
 
