@@ -21,10 +21,6 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems, options);
-        });
 
         (async function () {
             let header = await fetch(`/header.html`)
