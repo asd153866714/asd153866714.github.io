@@ -14,7 +14,10 @@
         (async function(){
             let header = await fetch(`/header.html`)
             .then((response) => {
-                document.getElementById("header").innerHTML = response
+                return response.text()
+            })
+            .then((html) => {
+                document.getElementById("header").innerHTML = html
             })
         }())
 
