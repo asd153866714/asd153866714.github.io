@@ -17,32 +17,30 @@
     <h1>hello </h1>
 
     <div id="footer"></div>
-</body>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 
-<!--JavaScript at end of body for optimized loading-->
-<script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, options);
+        });
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, options);
-    });
+        (async function () {
+            let header = await fetch(`/header.html`)
+                .then((response) => {
+                    return response.text()
+                })
+                .then((html) => {
+                    // Initialize the DOM parser
+                    var parser = new DOMParser();
 
-    (async function () {
-        let header = await fetch(`/header.html`)
-            .then((response) => {
-                return response.text()
-            })
-            .then((html) => {
-                // Initialize the DOM parser
-                var parser = new DOMParser();
+                    // Parse the text
+                    var doc = parser.parseFromString(html, "text/html");
 
-                // Parse the text
-                var doc = parser.parseFromString(html, "text/html");
-
-                document.getElementById("header").innerHTML = doc
-            })
-    }())
+                    document.getElementById("header").innerHTML = doc
+                })
+        }())
 
         // (async function () {
         //     let header = await fetch(`/footer.html`)
@@ -56,12 +54,15 @@
         //         })
         // }())
 
-    async function fetchJson() {
-        let r = await fetch(`/ccc.json`)
-        let json = await r.json()
-        document.getElementById('output').innerHTML = JSON.stringify(json, null, 2) // Jason.stringify() 將json字串化
-    }
+        async function fetchJson() {
+            let r = await fetch(`/ccc.json`)
+            let json = await r.json()
+            document.getElementById('output').innerHTML = JSON.stringify(json, null, 2) // Jason.stringify() 將json字串化
+        }
 
-</script>
+    </script>
+
+</body>
+
 
 </html>
