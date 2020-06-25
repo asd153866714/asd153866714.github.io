@@ -13,7 +13,9 @@
     <script>
         (async function(){
             let header = await fetch(`/header.html`)
-            document.getElementById("header").innerHTML = header.text
+            .then((response) => {
+                document.getElementById("header").innerHTML = response.text
+            })
         }())
 
         async function fetchJson() {
