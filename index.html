@@ -13,6 +13,7 @@
 
 <body>
     <div id="header"></div>
+    <button onclick="header()"></button>
 
     <h1>hello </h1>
 
@@ -22,7 +23,7 @@
 
     <script>
 
-        (async function () {
+        async function header() {
             let header = await fetch(`/header.html`)
                 .then(response => {
                     return response.text()
@@ -37,7 +38,7 @@
 
                     document.getElementById("header").innerHTML = doc
                 })
-        }())
+        }
 
         // (async function () {
         //     let header = await fetch(`/footer.html`)
