@@ -24,15 +24,15 @@
 
         (async function () {
             let header = await fetch(`/header.html`)
-                .then((response) => {
+                .then(response => {
                     return response.text()
                 })
-                .then((html) => {
+                .then(html => {
                     // Initialize the DOM parser
-                    var parser = new DOMParser();
+                    var parser = new DOMParser()
 
                     // Parse the text
-                    var doc = parser.parseFromString(html, "text/html");
+                    var doc = parser.parseFromString(html, "text/html")
                     console.log("test", doc)
 
                     document.getElementById("header").innerHTML = doc
