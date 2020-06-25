@@ -4,11 +4,10 @@
     </head>
     <body>
         <div id="header"></div>
-        <iframe src="header.html"></iframe>
+
         <h1>hello </h1>
-        <button id="fetchJson" onclick="fetchJson()">fetchJson()</button>
-        <pre id="output">  <!--<pre>: pure text-->
-        </pre>
+
+        <div id="footer"></div>
     </body>
     <script>
         (async function(){
@@ -23,12 +22,19 @@
                 // Parse the text
                 var doc = parser.parseFromString(html, "text/html");
 
-                // You can now even select part of that html as you would in the regular DOM 
-                // Example:
-                // var docArticle = doc.querySelector('article').innerHTML;
-
-                console.log(doc);
                 document.getElementById("header").innerHTML = doc
+            })
+        }())
+
+        (async function(){
+            let header = await fetch(`/footer.html`)
+            .then((response) => {
+                return response.text()
+            })
+            .then((html) => {
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, "text/html");
+                document.getElementById("footer").innerHTML = doc
             })
         }())
 
