@@ -13,15 +13,20 @@
 
 <body>
     <div id="header"></div>
-    <button onclick="header()"></button>
+    <button onclick="test()">click!!!</button>
+    <div id="hbd"></div>
 
-    <h1>hello </h1>
+    <!-- <h1>hello </h1> -->
 
     <div id="footer"></div>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
 
     <script>
+
+        // window.onload = function (){
+        //     header()
+        // }
 
         async function header() {
             let header = await fetch(`/header.html`)
@@ -38,6 +43,21 @@
 
                     document.getElementById("header").innerHTML = html
                 })
+        }
+
+        function test() {
+            setInterval(() => {
+                surprise()
+            }, 1000);
+        }
+
+        function surprise() {
+            let n = 0
+            let a = document.getElementById('hbd')
+            for (n; n < 10; n++) {
+                a.innerHTML += `<h5>生日快樂~~~</h5>`
+            }
+            window.scrollTo(0, document.body.scrollHeight)
         }
 
         // (async function () {
